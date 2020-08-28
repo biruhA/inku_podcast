@@ -1,0 +1,63 @@
+{
+  "kind": "collectionType",
+  "collectionName": "episodes",
+  "info": {
+    "name": "Episode"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "subtitle": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "text",
+      "required": true
+    },
+    "audioURI": {
+      "model": "file",
+      "via": "related",
+      "allowedTypes": [
+        "files"
+      ],
+      "plugin": "upload",
+      "required": true
+    },
+    "duration": {
+      "type": "string",
+      "required": true
+    },
+    "IsLiked": {
+      "type": "boolean",
+      "default": false,
+      "required": true
+    },
+    "genre": {
+      "type": "enumeration",
+      "enum": [
+        "Technology",
+        "Dating",
+        "Music",
+        "Movies",
+        "Lifestyle",
+        "Tour_and_travel",
+        "Politics",
+        "Business",
+        "History",
+        "Food"
+      ],
+      "required": true
+    },
+    "podcast": {
+      "model": "podcast",
+      "via": "episodes"
+    }
+  }
+}
